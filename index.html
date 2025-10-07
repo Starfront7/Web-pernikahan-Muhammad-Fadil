@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Undangan Pernikahan — Gilang & Yaya</title>
+  <style>
+    :root{
+      --accent:#00bcd4;
+      --text:#2b2b2b;
+    }
+
+    html{scroll-behavior:smooth;}
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Segoe UI',Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#00bcd4 0%,#4dd0e1 100%);
+      color:var(--text);
+      line-height:1.5;
+    }
+    header{
+      position:fixed;top:0;left:0;right:0;
+      background:var(--accent);
+      color:white;
+      box-shadow:0 2px 8px rgba(0,0,0,0.2);
+      z-index:1000;
+    }
+    .container{max-width:1000px;margin:0 auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:12px;background:white;color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav{display:flex;gap:8px}
+    .nav-btn{background:transparent;border:0;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600;color:white}
+    .nav-btn:hover{background:rgba(255,255,255,0.2)}
+
+    section{padding:80px 5px;max-width:1000px;margin:0 auto}
+    .section-card{background:rgba(255,255,255,0.85);padding:22px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.03);padding-bottom:200px;margin-bottom:120px;}
+
+    h2{margin:0 0 8px}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+    .gallery img{width:100%;height:200px;object-fit:cover;border-radius:10px}
+    .schedule li{margin:10px 0;padding:10px;border-radius:8px;background:rgba(255,255,255,0.6)}
+    form{display:flex;flex-direction:column;gap:10px}
+    input,textarea,select{padding:10px;border-radius:8px;border:1px solid #eee}
+    input[type=submit]{background:var(--accent);color:white;border:0;padding:12px;border-radius:10px;cursor:pointer}
+
+    footer{padding:30px 20px;text-align:center;color:white}
+
+    .hero-card{max-width:920px;margin:0 20px;background:rgba(255,255,255,0.85);padding:36px;border-radius:16px;display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:center}
+    .hero-left h1{font-size:36px;margin:0}
+    .cta-row{margin-top:18px;display:flex;gap:12px}
+    .btn-primary{background:var(--accent);color:white;padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+    .btn-ghost{background:transparent;border:2px solid var(--accent);padding:8px 14px;border-radius:10px;cursor:pointer;color:var(--accent)}
+
+    @media(max-width:820px){.hero-card{grid-template-columns:1fr}}
+    html[data-scroll-offset]{scroll-padding-top:88px}
+    .to-top{position:fixed;right:18px;bottom:18px;padding:10px 12px;border-radius:10px;background:rgba(0,0,0,0.3);color:white;border:0;cursor:pointer}
+    #music-btn{position:fixed;left:18px;bottom:18px;z-index:1100;padding:10px 14px;border-radius:50%;border:0;background:white;color:var(--accent);cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
+    .confetti{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;z-index:2000;}
+    .confetti-piece{position:absolute;width:10px;height:10px;background:var(--accent);opacity:0.8;animation:fall 3s linear forwards;}
+    @keyframes fall{to{transform:translateY(100vh) rotate(720deg);opacity:0;}}
+  </style>
+</head>
+<body data-scroll-offset>
+  <audio id="bg-music" loop>
+    <source src="Aziz Hedra - Somebody's Pleasure (Extended Version) (128).mp3" type="audio/mpeg">
+  </audio>
+  <button id="music-btn" title="Putar / Hentikan Musik">♪</button>
+
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="logo">GY</div>
+        <div>
+          <div style="font-weight:800">Gilang & Yaya</div>
+          <div style="font-size:12px">12 Desember 2025 • MHS</div>
+        </div>
+      </div>
+      <nav id="nav">
+        <button class="nav-btn" data-target="home">Beranda</button>
+        <button class="nav-btn" data-target="story">Cerita Kami</button>
+        <button class="nav-btn" data-target="gallery">Galeri</button>
+        <button class="nav-btn" data-target="schedule">Jadwal</button>
+        <button class="nav-btn" data-target="rsvp">RSVP</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home">
+      <div class="section-card section-card-home">
+        <div class="hero-card">
+          <div class="hero-left">
+            <h1>Kami Menikah!</h1>
+            <p>Dengan bahagia kami mengundang Anda untuk hadir pada hari istimewa kami.</p>
+            <div class="cta-row">
+              <button class="btn-primary" data-target="rsvp">Konfirmasi Kehadiran</button>
+              <button class="btn-ghost" data-target="schedule">Lihat Jadwal</button>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;align-items:center">
+            <img src="https://inviaadigital.com/wp-content/uploads/2025/09/Gilang-Yaya-10.webp" alt="Gilang & Yaya" style="width:200px;height:200px;border-radius:14px;object-fit:cover">
+            <div style="font-size:13px">Tanggal: 12 Desember 2025<br> Lokasi: MHS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="section-card section-card-story">
+        <h2>Cerita Kami</h2>
+        <p>Kami berawal di taman permainan hingga kami sekarang menuju pelaminan.  
+        Terima kasih telah bersamaku sampai saat ini.</p>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="section-card section-card-gallery">
+        <h2>Galeri</h2>
+        <div class="gallery">
+          <img src="https://inviaadigital.com/wp-content/uploads/2025/09/Gilang-Yaya-8.webp" alt="Galeri 1">
+          <img src="https://inviaadigital.com/wp-content/uploads/2025/09/Gilang-Yaya-4.webp" alt="Galeri 2">
+          <img src="https://inviaadigital.com/wp-content/uploads/2025/09/Gilang-Yaya-11.webp" alt="Galeri 3">
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="section-card section-card-schedule">
+        <h2>Jadwal Acara</h2>
+        <ul class="schedule">
+          <li><strong>09:00</strong> - Kedatangan Tamu</li>
+          <li><strong>10:00</strong> - Akad Nikah</li>
+          <li><strong>12:00</strong> - Resepsi & Jamuan</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="rsvp">
+      <div class="section-card section-card-rsvp">
+        <h2>Konfirmasi Kehadiran (RSVP)</h2>
+        <form id="rsvpForm">
+          <input type="text" placeholder="Nama lengkap" required>
+          <input type="tel" placeholder="Nomor telepon / WA" required>
+          <select required>
+            <option value="">Pilih kehadiran</option>
+            <option value="hadir">Hadir</option>
+            <option value="tidak">Tidak Hadir</option>
+          </select>
+          <textarea placeholder="Pesan / catatan (opsional)" rows="3"></textarea>
+          <input type="submit" value="Kirim Konfirmasi">
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <button class="to-top" id="toTop" title="Kembali ke atas">↑</button>
+
+  <footer>
+    <div id="clock"></div>
+    <div style="margin-top:8px">&copy; 2025 — Gilang & Yaya. Semua hak dilindungi.</div>
+  </footer>
+
+  <div class="confetti" id="confetti"></div>
+
+  <script>
+    document.querySelectorAll('[data-target]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const el=document.getElementById(btn.getAttribute('data-target'));
+        if(el) el.scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    const navButtons=document.querySelectorAll('#nav .nav-btn');
+    const sections=Array.from(document.querySelectorAll('main section'));
+    function onScroll(){
+      const y=window.scrollY+100;
+      let current=sections[0].id;
+      for(const s of sections){if(s.offsetTop<=y) current=s.id;}
+      navButtons.forEach(b=>b.style.opacity=(b.getAttribute('data-target')===current?'1':'0.64'));
+    }
+    window.addEventListener('scroll',onScroll);onScroll();
+
+    const toTop=document.getElementById('toTop');
+    toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+    window.addEventListener('scroll',()=>{toTop.style.display=(window.scrollY>300)?'block':'none'});toTop.style.display='none';
+
+    const music=document.getElementById('bg-music');
+    const musicBtn=document.getElementById('music-btn');
+    let playing=false;
+    musicBtn.addEventListener('click',()=>{
+      if(!playing){music.play();playing=true;musicBtn.textContent='❚❚';}
+      else{music.pause();playing=false;musicBtn.textContent='♪';}
+    });
+
+    function launchConfetti(){
+      const confetti=document.getElementById('confetti');
+      for(let i=0;i<40;i++){
+        const piece=document.createElement('div');
+        piece.className='confetti-piece';
+        piece.style.left=Math.random()*100+'%';
+        piece.style.background=`hsl(${Math.random()*360},70%,60%)`;
+        piece.style.animationDuration=2+Math.random()*2+'s';
+        confetti.appendChild(piece);
+        setTimeout(()=>piece.remove(),3000);
+      }
+    }
+    document.getElementById('rsvpForm').addEventListener('submit',e=>{
+      e.preventDefault();
+      alert('Terima kasih! Konfirmasi Anda telah dicatat.');
+      launchConfetti();
+      e.target.reset();
+    });
+
+    function updateClock(){
+      const now=new Date();
+      document.getElementById('clock').textContent=now.toLocaleTimeString('id-ID');
+    }
+    setInterval(updateClock,1000);updateClock();
+  </script>
+</body>
+</html>
